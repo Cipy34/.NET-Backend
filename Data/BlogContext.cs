@@ -1,6 +1,32 @@
-﻿namespace RecipeBlog.Data
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using RecipeBlog.Models;
+
+namespace RecipeBlog.Data
 {
-    public class BlogDbContext
+    public class BlogContext : DbContext
     {
+        public BlogContext(DbContextOptions options) : base(options)
+        {
+        }
+
+        public DbSet<RecipePost> RecipePost { get; set; }
+        public DbSet<FavoriteRecipe> FavoriteRecipe { get; set; }
+        public DbSet<Review> Review { get; set; }
+        public DbSet<User> User { get; set; }
+
+        public DbSet<Person> Person { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<RecipePost>().HasKey(r => r.RecipeId);
+
+            modelBuilder.Entity<Person>()
+                .HasOne(p => p.User)
+                .WithOne(u => u.Person)
+                .HasForeignKey<User>(u => u.PersonId);
+        }
     }
 }
