@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecipeBlog.Models
 {
@@ -6,17 +7,14 @@ namespace RecipeBlog.Models
     {
         [Key]
         public int RecipeId { get; set; }
-
         public String Title { get; set; }
-
         public String Description { get; set; }
-
         public int CookingTime { get; set; }
-
         public int Difficulty { get; set; }
-
         public String ImageUrl { get; set; }
+        public float? avg { get; set; }
 
-        public ICollection<Review> Reviews { get; set; }
+        public ICollection<FavoriteRecipe>? FavoriteRecipes { get; set; }
+        public ICollection<Review>? Reviews { get; set; }
     }
 }

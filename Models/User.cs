@@ -5,19 +5,15 @@ namespace RecipeBlog.Models
 {
     public class User
     {
-        [ForeignKey("PersonId")]
+        public int UserId { get; set; }
+        public String UserName { get; set; }
+        public String Password { get; set; }
+        
 
         public int PersonId { get; set; }
-
-        [Key]
-        public int UserId { get; set; }
-
-        public String UserName { get; set; }
-
-        public String Password { get; set; }
-
-        public ICollection<Review> Reviews { get; set; }
-
         public virtual Person Person { get; set; }
+
+        public ICollection<FavoriteRecipe>? FavoriteRecipes { get; set; }
+
     }
 }

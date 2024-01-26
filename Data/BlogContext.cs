@@ -21,12 +21,18 @@ namespace RecipeBlog.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<RecipePost>().HasKey(r => r.RecipeId);
+            modelBuilder.Entity<FavoriteRecipe>()
+                .HasKey(fr => new { fr.RecipeId, fr.UserId });
 
-            modelBuilder.Entity<Person>()
-                .HasOne(p => p.User)
-                .WithOne(u => u.Person)
-                .HasForeignKey<User>(u => u.PersonId);
+            modelBuilder.Entity<FavoriteRecipe>()
+                .HasOne(fr => fr.User)
+                .WithMany(u => u.FavoriteRecipes)
+                .HasForeignKey(fr => fr.UserId);
+
+            modelBuilder.Entity<FavoriteRecipe>()
+                .HasOne(fr => fr.RecipePost)
+                .WithMany(rp => rp.FavoriteRecipes)
+                .HasForeignKey(fr => fr.RecipeId);
         }
     }
 }

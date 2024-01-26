@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RecipeBlog.Models
 {
@@ -6,11 +7,8 @@ namespace RecipeBlog.Models
     {
         [Key]
         public int ReviewId { get; set; }
-
         public int Rating { get; set; }
-
         public String Comment { get; set; }
-
         public DateTime PostDate { get; set; }
 
         public virtual RecipePost RecipePost { get; set; }

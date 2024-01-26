@@ -1,10 +1,14 @@
 ﻿using RecipeBlog.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace RecipeBlog.Models
 {
     public class FavoriteRecipe
     {
-        public Guid FavoriteRecipeId { get; set; }
+        [Key]
+        public int FavoriteRecipeId { get; set; }
+        public int UserId { get; set; }
+        public int RecipeId { get; set; }
 
         public virtual RecipePost RecipePost { get; set; }
 

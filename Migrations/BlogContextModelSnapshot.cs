@@ -17,26 +17,23 @@ namespace RecipeBlog.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "7.0.5")
+                .HasAnnotation("ProductVersion", "7.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("RecipeBlog.Models.FavoriteRecipe", b =>
                 {
-                    b.Property<Guid>("FavoriteRecipeId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("RecipePostRecipeId")
+                    b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("FavoriteRecipeId");
+                    b.Property<int>("FavoriteRecipeId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("RecipePostRecipeId");
+                    b.HasKey("RecipeId", "UserId");
 
                     b.HasIndex("UserId");
 
@@ -158,13 +155,13 @@ namespace RecipeBlog.Migrations
             modelBuilder.Entity("RecipeBlog.Models.FavoriteRecipe", b =>
                 {
                     b.HasOne("RecipeBlog.Models.RecipePost", "RecipePost")
-                        .WithMany()
-                        .HasForeignKey("RecipePostRecipeId")
+                        .WithMany("FavoriteRecipes")
+                        .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RecipeBlog.Models.User", "User")
-                        .WithMany()
+                        .WithMany("FavoriteRecipes")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -177,13 +174,13 @@ namespace RecipeBlog.Migrations
             modelBuilder.Entity("RecipeBlog.Models.Review", b =>
                 {
                     b.HasOne("RecipeBlog.Models.RecipePost", "RecipePost")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("RecipePostRecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("RecipeBlog.Models.User", "User")
-                        .WithMany("Reviews")
+                        .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -212,12 +209,12 @@ namespace RecipeBlog.Migrations
 
             modelBuilder.Entity("RecipeBlog.Models.RecipePost", b =>
                 {
-                    b.Navigation("Reviews");
+                    b.Navigation("FavoriteRecipes");
                 });
 
             modelBuilder.Entity("RecipeBlog.Models.User", b =>
                 {
-                    b.Navigation("Reviews");
+                    b.Navigation("FavoriteRecipes");
                 });
 #pragma warning restore 612, 618
         }
