@@ -1,5 +1,8 @@
 using RecipeBlog.Data;
 using Microsoft.EntityFrameworkCore;
+using RecipeBlog.Services.UserService;
+//using RecipeBlog.Services.PersonService;
+using RecipeBlog.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,7 +16,13 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<BlogContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("BlogConnectionString")));
 
+builder.Services.AddScoped<IUserService, UserService>();
+//builder.Services.AddScoped<IPersonService, PersonService>();
+
+
 var app = builder.Build();
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

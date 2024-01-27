@@ -16,8 +16,19 @@ namespace RecipeBlog.Services.UserService
             _dbContext = dbContext;
         }
 
-        public async Task AddUser(User user)
+        public async Task AddUser(User user, Person pers)
         {
+            
+
+            if (!_dbContext.Person.Any(p => p.PersonId == pers.PersonId))
+            {
+                _dbContext.Person.Add(pers);
+                await _dbContext.SaveChangesAsync();
+            }
+
+            Console.WriteLine($"PersonId: {user.PersonId}");
+            user.PersonId = _dbContext.Person.Max(p => p.PersonId);
+
             _dbContext.User.Add(user);
             await _dbContext.SaveChangesAsync();
         }

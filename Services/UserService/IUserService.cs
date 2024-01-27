@@ -6,7 +6,7 @@ namespace RecipeBlog.Services.UserService
 {
     public interface IUserService
     {
-        Task AddUser(User u);
+        Task AddUser(User u, Person p);
         Task<IEnumerable<UserDTO>> DisplayUsers();
         Task<UserDTO> UserById(int id);
     }
