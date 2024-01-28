@@ -23,27 +23,39 @@ namespace RecipeBlog.Controllers
         [HttpPost]
         public async Task<IActionResult> AddUser([FromBody] UserDTO user)
         {
-                // Create Person
-                var person = new Person
-                {
-                    //PersonId = user.PersonId,
-                    FirstName = user.FirstName,
-                    LastName = user.LastName
-                };
+            // Create Person
+            var person = new Person
+            {
+                //PersonId = user.PersonId,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
 
-                // Create User
-                var nuser = new User
-                {
-                    //UserId = user.UserId,
-                    UserName = user.UserName,
-                    Password = user.Password,
-                    PersonId = user.PersonId
-                };
+            // Create User
+            var nuser = new User
+            {
+                //UserId = user.UserId,
+                UserName = user.UserName,
+                Password = user.Password,
+                PersonId = user.PersonId
+            };
 
-                await _userService.AddUser(nuser, person);
+            await _userService.AddUser(nuser, person);
 
-                return Ok();
+            return Ok();
         }
 
+        [HttpGet]
+        public async Task<IEnumerable<UserDTO>> DisplayUsers()
+        {
+            return await _userService.DisplayUsers();
+        }
+
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> UserById(int userId)
+        {
+            var users = await _userService.UserById(userId);
+            return Ok(users);  
+        }
     }
 }
