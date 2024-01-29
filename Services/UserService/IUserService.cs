@@ -9,5 +9,8 @@ namespace RecipeBlog.Services.UserService
         Task AddUser(User u, Person p);
         Task<IEnumerable<UserDTO>> DisplayUsers();
         Task<UserDTO> UserById(int id);
+
+        Task DeleteUser(int id);
+        Task UpdateUser(User user, Person pers); 
     }
 }

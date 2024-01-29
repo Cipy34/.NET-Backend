@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using RecipeBlog.Exceptions;
+using Microsoft.EntityFrameworkCore;
 
 namespace RecipeBlog.Controllers
 {
@@ -55,7 +56,38 @@ namespace RecipeBlog.Controllers
         public async Task<IActionResult> UserById(int userId)
         {
             var users = await _userService.UserById(userId);
-            return Ok(users);  
+            return Ok(users);
+        }
+
+        [HttpDelete("{userId}")]
+        public async Task<IActionResult> DeleteUser(int userId)
+        {
+            await _userService.DeleteUser(userId);
+            return Ok();
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateUser([FromBody] UserDTO user)
+        {
+            var person = new Person
+            {
+                PersonId = user.PersonId,
+                FirstName = user.FirstName,
+                LastName = user.LastName
+            };
+
+            // Create User
+            var nuser = new User
+            {
+                //UserId = user.UserId,
+                UserName = user.UserName,
+                Password = user.Password,
+                PersonId = user.PersonId
+            };
+
+            await _userService.UpdateUser(nuser, person);
+
+            return Ok();
         }
     }
 }
