@@ -3,7 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using RecipeBlog.Services.UserService;
 //using RecipeBlog.Services.PersonService;
 using RecipeBlog.Controllers;
-//using RecipeBlog.Repositories;
+using RecipeBlog.Services.RecipePostService;
+using RecipeBlog.Repositories;
+using RecipeBlog.Services.ReviewService;
+using RecipeBlog.Services.FavoriteRecipeService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +21,11 @@ builder.Services.AddDbContext<BlogContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("BlogConnectionString")));
 
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IRecipePostService, RecipePostService>();
+builder.Services.AddScoped<IReviewService, ReviewService>();
+builder.Services.AddScoped<IFavoriteRecipeService, FavoriteRecipeService>();
+//builder.Repositories.AddScoped<IUserRepository, UserRepository>();
+
 //builder.Services.AddScoped<IPersonService, PersonService>();
 
 

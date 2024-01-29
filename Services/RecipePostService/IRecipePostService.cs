@@ -6,9 +6,11 @@ namespace RecipeBlog.Services.RecipePostService
 {
     public interface IRecipePostService
     {
-        Task<IEnumerable<RecipePostDTO>> GetRecipePosts(int RecipeId);
-        Task AddRecipePost(RecipePost rp);
-        Task<IEnumerable<RecipePostDTO>> DisplayRecipePosts();
-        Task<RecipePostDTO> IdByRecipePost(int id);
+        Task AddPost(RecipePost r);
+        Task<IEnumerable<RecipePostDTO>> DisplayPosts();
+        Task<RecipePostDTO> PostById(int id);
+
+        Task DeletePost(int id);
+        Task UpdatePost(RecipePost r);
     }
 }

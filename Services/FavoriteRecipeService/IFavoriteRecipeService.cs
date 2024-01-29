@@ -6,9 +6,11 @@ namespace RecipeBlog.Services.FavoriteRecipeService
 {
     public interface IFavoriteRecipeService
     {
-        Task<IEnumerable<FavoriteRecipeDTO>> GetFavoriteRecipes(int FavoriteRecipeId);
-        Task AddFavoriteRecipe(FavoriteRecipe fr);
+        Task AddFavoriteRecipe(FavoriteRecipe r);
         Task<IEnumerable<FavoriteRecipeDTO>> DisplayFavoriteRecipes();
-        Task<FavoriteRecipeDTO> IdByFavoriteRecipe(int id);
+        Task<FavoriteRecipeDTO> FavoriteRecipeById(int id);
+
+        Task DeleteFavoriteRecipe(int id);
+        Task UpdateFavoriteRecipe(FavoriteRecipe r);
     }
 }

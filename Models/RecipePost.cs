@@ -12,7 +12,6 @@ namespace RecipeBlog.Models
         public int CookingTime { get; set; }
         public int Difficulty { get; set; }
         public String ImageUrl { get; set; }
-        public float? avg { get; set; }
 
         public ICollection<FavoriteRecipe>? FavoriteRecipes { get; set; }
         public ICollection<Review>? Reviews { get; set; }
