@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "CqbeQpy8tN68bHcYc2NivAgyLYtwbQ+fYAPp2S7fnQ7Jd5U+UkXVcMsF2NDuHCEfdEYx4oO5sOANSu87G6IHPw==",
+  "dgSpecHash": "nBwlsCB/RGv6QJ6k5u82oZuh98qbY3R3OExLPQLOg5MF3D2h4Lk5PLQzzUi/rFPDcFEKS6CFUsm9ETiHYDtfMQ==",
   "success": true,
   "projectFilePath": "D:\\facultate\\an 2\\s1\\asp\\Proiect asp nou\\RecipeBlog\\RecipeBlog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ciprian\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Ciprian\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Ciprian\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Ciprian\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Ciprian\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\Ciprian\\.nuget\\packages\\humanizer.core.af\\2.14.1\\humanizer.core.af.2.14.1.nupkg.sha512",

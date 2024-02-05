@@ -11,6 +11,8 @@ namespace RecipeBlog.Services.UserService
         Task<UserDTO> UserById(int id);
 
         Task DeleteUser(int id);
-        Task UpdateUser(User user, Person pers); 
+        Task UpdateUser(User user, Person pers);
+
+        Task<UserDTO> UserLogin(string username, string password);
     }
 }

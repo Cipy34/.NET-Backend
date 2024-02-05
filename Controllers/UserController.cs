@@ -37,7 +37,7 @@ namespace RecipeBlog.Controllers
             {
                 //UserId = user.UserId,
                 UserName = user.UserName,
-                Password = user.Password,
+                Password = BCrypt.Net.BCrypt.HashPassword(user.Password),
                 PersonId = user.PersonId
             };
 

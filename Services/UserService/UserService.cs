@@ -86,5 +86,22 @@ namespace RecipeBlog.Services.UserService
             _dbContext.Update(pers);
             await _dbContext.SaveChangesAsync();
         }
+
+        public async Task<UserDTO> UserLogin(string username, string password)
+        {
+            var user = await _dbContext.User.FirstOrDefaultAsync(u => u.UserName == username);
+            if (user == null)
+            {
+                throw new Exceptie("Nu exista user");
+            }
+            else
+            if (!BCrypt.Net.BCrypt.Verify(password, user.Password))
+            {
+                throw new Exceptie("Parola gresita");
+            }
+                
+            else
+                return new UserDTO { PersonId = user.PersonId, UserName = user.UserName, Password = user.Password};
+        }
     }
 }
