@@ -253,3 +253,9 @@ D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\runtimes\wi
 D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\BCrypt.Net-Next.dll
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\angular.json
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\package-lock.json
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\package.json
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\tsconfig.app.json
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\tsconfig.json
+D:\facultate\an 2\s1\asp\Proiect asp nou\RecipeBlog\bin\Debug\net7.0\FrontEnd\RecipeBlog\tsconfig.spec.json

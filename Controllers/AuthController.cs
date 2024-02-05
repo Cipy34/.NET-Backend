@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Packaging.Signing;
@@ -8,7 +9,7 @@ using RecipeBlog.Services.UserService;
 
 namespace RecipeBlog.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Registration")]
     [ApiController]
     public class AuthController : ControllerBase
     {
